@@ -1,0 +1,5 @@
+fetch("/api/aircraft")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data)
+  });
