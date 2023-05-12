@@ -1,33 +1,39 @@
 import pg from "pg";
 import express from "express";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const server = express();
 server.use(express.json());
 
 const PORT = 4000;
 
+
 //  Using PostgreSQL database and the pg.Pool class is used to manage a pool of client connections to the database.
 const db = new pg.Pool({
-    database: "Aircraft",
+    connectionString: process.env.DATABASE_URL,
 });
 
+server.use(express.static("public"));
+
 //          Getting all the aircrafts from the database using db.query
-server.get("/aircraft", (req, res) => {
+server.get("/api/aircraft", (_, res) => {
     db.query("SELECT * FROM aircraft")
     .then((result) => {
       res.send(result.rows);
     });
 });
 
-//          Getting a specific aircraft by ID from the database.
-server.get("/aircraft/:id", (req, res) => {
-    const id = Number(req.params.id);
-    if (Number.isNaN(id)) {
+//          Getting a specific aircraft by name from the database.
+server.get("/api/aircraft/:name", (req, res) => {
+    const name = req.params.name;
+    if(!name) {
         res.sendStatus(422);
         return;
     }
 
-    db.query("SELECT * FROM aircraft WHERE id = $1", [id])
+    db.query("SELECT * FROM aircraft WHERE name = $1", [name])
     .then((result) => {
         if(result.rows.length === 0) {
             res.sendStatus(404);
@@ -38,10 +44,10 @@ server.get("/aircraft/:id", (req, res) => {
 });
 
 //          Posting a new aircraft to the database.
-server.post("/aircraft", (req, res) => {
+server.post("/api/aircraft/post", (req, res) => {
 
     const { name, role, call_name, first_flight, status} = req.body;
-    const aircraft = { name, role, call_name, first_flight, status};
+    // const aircraft = { name, role, call_name, first_flight, status};
 
     //  validation   (!name = undefined === name = undefined )
     if( !name ||
@@ -62,14 +68,14 @@ server.post("/aircraft", (req, res) => {
 });
 
 //          Deleting aircraft by specific ID from the database.
-server.delete("/aircraft/:id", (req, res) => {
-    const id = Number(req.params.id);
-    if(isNaN(id)) {
+server.delete("/api/aircraft/delete/:name", (req, res) => {
+    const name = req.params.name;
+    if(!name) {
         res.sendStatus(422);
-        return
+        return;
     }
 
-    db.query("DELETE FROM aircraft WHERE ID = $1 RETURNING *", [id])
+    db.query("DELETE FROM aircraft WHERE name = $1 RETURNING *", [name])
     .then((result) => {
         if(result.rows.length === 0) {
             res.sendStatus(404);
@@ -79,31 +85,60 @@ server.delete("/aircraft/:id", (req, res) => {
     })
 });
 
-//          Patch /or Update info of the aircraft to the database
-server.patch('/aircraft/:id', (req, res) => {
-    const id = Number(req.params.id);
-    const { name, role, call_name, first_flight, status } = req.body;
+// //          Patch /or Update info of the aircraft to the database
+// server.patch('/api/aircraft/patch', (req, res) => {
+//     const { name, role, call_name, first_flight, status } = req.body;
     
-    // validation
-    if(  Number.isNaN(id)|| ( !name && !role && !call_name && !first_flight && !status)) {
+//     // validation
+//     if( !name && !role && !call_name && !first_flight && !status) {
+//         res.sendStatus(422);
+//         return;
+//       }
+
+//       db.query(`UPDATE aircraft SET 
+//       name = COALESCE($1, name),
+//       role = COALESCE($2, role),
+//       call_name = COALESCE($3, call_name),
+//       first_flight = COALESCE($4, first_flight),
+//       status = COALESCE($5, status)
+//       WHERE id = $6 RETURNING *`, [name, role, call_name, first_flight, status, id])
+//       .then((result) => {
+//         if (result.rows.length === 0) {
+//             res.sendStatus(404);
+//         } else {
+//             res.send(result.rows[0]);
+//         }
+//       });
+// });
+
+
+server.patch('/api/aircraft/patch/:name', (req, res) => {
+    // Retrieve request body and name from req.params
+    const { name, role, call_name, first_flight, status } = req.body;
+    const aircraftName = req.params.name;
+
+    // Validation
+    if (!name && !role && !call_name && !first_flight && !status) {
         res.sendStatus(422);
         return;
-      }
+    }
 
-      db.query(`UPDATE aircraft SET 
-      name = COALESCE($1, name),
-      role = COALESCE($2, role),
-      call_name = COALESCE($3, call_name),
-      first_flight = COALESCE($4, first_flight),
-      status = COALESCE($5, status)
-      WHERE id = $6 RETURNING *`, [name, role, call_name, first_flight, status, id])
-      .then((result) => {
-        if (result.rows.length === 0) {
-            res.sendStatus(404);
-        } else {
-            res.send(result.rows[0]);
-        }
-      });
+    // Perform the database update based on aircraftName
+    db.query(`UPDATE aircraft SET 
+        name = COALESCE($1, name),
+        role = COALESCE($2, role),
+        call_name = COALESCE($3, call_name),
+        first_flight = COALESCE($4, first_flight),
+        status = COALESCE($5, status)
+        WHERE name = $6 RETURNING *`,
+        [name, role, call_name, first_flight, status, aircraftName])
+        .then((result) => {
+            if (result.rows.length === 0) {
+                res.sendStatus(404);
+            } else {
+                res.send(result.rows[0]);
+            }
+        });
 });
 
 

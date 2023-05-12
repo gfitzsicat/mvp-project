@@ -4,10 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script async src="app.js" defer></script>
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    
+    <div class="header">
+        <h1>Hello</h1>
+        <!-- generate all aircrafts -->
+        <button id="acBtn">Aircrafts!</button>
+
+        <!-- search specific aircraft -->
+        <input type="text" id="search" placeholder="Search an aircraft"/>
+        <button id="searchBtn">Search</button>
+
+        <!-- deleting an aircraft -->
+        <input type="text" id="deleteInput" placeholder="Aircraft Name">
+        <button id="delBtn">Delete</button>
+    </div>
+    <div>
+                  <!-- adding an aircraft -->
+                  <input type="text" id="nameInput" placeholder="Name">
+                  <input type="text" id="roleInput" placeholder="Role">
+                  <input type="text" id="callNameInput" placeholder="Call Name">
+                  <input type="text" id="firstFlightInput" placeholder="First Flight">
+                  <input type="text" id="statusInput" placeholder="Status">
+                  <button id="postBtn">Post</button>
+          
+    </div>
+    <div>
+           <!-- adding an aircraft -->
+           <input type="text" id="nameInput1" placeholder="Name">
+           <input type="text" id="roleInput1" placeholder="Role">
+           <input type="text" id="callNameInput1" placeholder="Call Name">
+           <input type="text" id="firstFlightInput1" placeholder="First Flight">
+           <input type="text" id="statusInput1" placeholder="Status">
+           <input type="text" id="updateInp" placeholder="Aircraft Name">
+           <button id="patchBtn">Patch</button>  
+    </div>
+
+    <div class="aircrafts">
+    </div>  
 </body>
 </html>
