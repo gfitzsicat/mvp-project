@@ -51,36 +51,6 @@ searchBtn.addEventListener("click", () => {
 });
 
 
-//          adding an aircraft to the database
-postBtn.addEventListener("click", () => {
-    aircrafts.innerHTML = '';
-
-    const name = document.getElementById("nameInput").value;
-    const role = document.getElementById("roleInput").value;
-    const callName = document.getElementById("callNameInput").value;
-    const firstFlight = document.getElementById("firstFlightInput").value;
-    const status = document.getElementById("statusInput").value;
-
-    const aircraft = {
-        name: name,
-        role: role,
-        call_name: callName,
-        first_flight: firstFlight,
-        status: status
-    };
-
-    fetch('/api/aircraft/post', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(aircraft)
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        console.log(data);
-    });
-});
 
 //          deleting an aircraft
 delBtn.addEventListener("click", () => {
@@ -99,53 +69,5 @@ delBtn.addEventListener("click", () => {
 });
 
 
-// Add an event listener to the patchBtn
-patchBtn.addEventListener("click", () => {
-    aircrafts.innerHTML = '';
-
-    const name = document.getElementById("nameInput1").value;
-    const role = document.getElementById("roleInput1").value;
-    const callName = document.getElementById("callNameInput1").value;
-    const firstFlight = document.getElementById("firstFlightInput1").value;
-    const status = document.getElementById("statusInput1").value;
-    const aircraftName = document.getElementById("updateInp").value;
-    console.log("asdfasd")
-    
-    const aircraft = {
-        name: name || null,
-        role: role || null,
-        call_name: callName || null,
-        first_flight: firstFlight || null,
-        status: status || null
-    };
-
-    console.log(aircraft)
-    
-    fetch(`/api/aircraft/patch/${aircraftName}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(aircraft)
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        console.log(data);
-    }).catch((error) => {
-        console.log(error);
-      });
-});
 
 
-
-// fetch(`/api/aircraft/patch/${aircraftName}`, {
-//     method: 'PATCH',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(aircraft)
-// })
-// .then((res) => res.json())
-// .then((data) => {
-//     console.log(data);
-// });

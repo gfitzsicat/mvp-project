@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!-- adding an aircraft -->
+        <input type="text" id="nameInput1" placeholder="Name">
+        <input type="text" id="roleInput1" placeholder="Role">
+        <input type="text" id="callNameInput1" placeholder="Call Name">
+        <input type="text" id="firstFlightInput1" placeholder="First Flight">
+        <input type="text" id="statusInput1" placeholder="Status">
+        <input type="text" id="updateInp" placeholder="Aircraft Name">
+        <button id="patchBtn">Patch</button>  
+    </div>
+
+    <script>
+        // Add an event listener to the patchBtn
+    patchBtn.addEventListener("click", () => {  
+        // aircrafts.innerHTML = '';
+
+        const name = document.getElementById("nameInput1").value;
+        const role = document.getElementById("roleInput1").value;
+        const call_name = document.getElementById("callNameInput1").value;
+        const first_flight = document.getElementById("firstFlightInput1").value;
+        const status = document.getElementById("statusInput1").value;
+        const aircraftName = document.getElementById("updateInp").value;
+        
+            const aircraft = {
+                name: name || null,
+                role: role || null,
+                call_name: call_name || null,
+                first_flight: first_flight || null,
+                status: status || null
+            };
+
+            console.log(aircraft)
+            
+            fetch(`/api/aircraft/patch/${aircraftName}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(aircraft)
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                alert(`You've successfully modified ${aircraftName} information.`);
+            }).catch((error) => {
+                console.log(error);
+            });
+        });
+
+    </script>
+</body>
+</html>

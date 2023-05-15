@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!-- adding an aircraft -->
+        <input type="text" id="nameInput" placeholder="Name">
+        <input type="text" id="roleInput" placeholder="Role">
+        <input type="text" id="callNameInput" placeholder="Call Name">
+        <input type="text" id="firstFlightInput" placeholder="First Flight">
+        <input type="text" id="statusInput" placeholder="Status">
+        <button id="postBtn">Post</button>
+    
+    </div>
+
+
+    <script>
+
+//          adding an aircraft to the database
+postBtn.addEventListener("click", () => {
+    // aircrafts.innerHTML = '';
+
+    const name = document.getElementById("nameInput").value;
+    const role = document.getElementById("roleInput").value;
+    const call_name = document.getElementById("callNameInput").value;
+    const first_flight = document.getElementById("firstFlightInput").value;
+    const status = document.getElementById("statusInput").value;
+    
+    const aircraft = {
+        name: name,
+        role: role,
+        call_name: call_name,
+        first_flight: first_flight,
+        status: status
+    };
+
+    fetch('/api/aircraft/post', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(aircraft)
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+        alert(`You successfully added name: ${name}, role: ${role}, call_name: ${call_name}, first_flight: ${first_flight}, status: ${status} to the collection`);
+    });
+});
+    </script>
+</body>
+</html>
