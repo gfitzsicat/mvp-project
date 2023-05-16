@@ -35,12 +35,19 @@ getAircrafts;
 
 
 //          get a specific aircraft by searching name
-searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", (event) => {
+    event.preventDefault()
     aircrafts.innerHTML = '';
     carouselExampleAutoplaying.innerHTML = '';
     container.innerHTML = '';
 
     let aircraftName = searchInp.value;
+    if(aircraftName === "") {
+        const div = document.createElement("div");
+        div.innerText = ('No search results found')
+        aircrafts.append(div)
+        return
+    } else {
     fetch(`/api/aircraft/${aircraftName}`)
     .then((res) => res.json())
     .then((data) => {
@@ -53,7 +60,8 @@ searchBtn.addEventListener("click", () => {
             }
         };
     //   console.log(data);
-    });
+     });
+    };
 });
 
 
@@ -77,7 +85,5 @@ delBtn.addEventListener("click", () => {
     });
 
 });
-
-
 
 

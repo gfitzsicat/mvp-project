@@ -9,11 +9,12 @@
     <title>Document</title>
 </head>
 <body>
+    <a id="return" class="nav-link active" onclick="location.href='index.html'" >&#60 Return</a>
     <header id="postHeader">
         <h3> To add an aircraft, please complete the following information:</h3>
     </header>
-    <a id="return" class="nav-link active" onclick="location.href='index.html'" >&#60 Return</a>
     <div id="post">
+        
         <!-- adding an aircraft -->
         <input type="text" id="nameInput" placeholder="Name">
         <input type="text" id="roleInput" placeholder="Role">
@@ -58,13 +59,13 @@ postBtn.addEventListener("click", () => {
             console.log(data);
             const messageContainer = document.getElementById('messageContainer');
             const message = document.createElement('p');
-            message.innerHTML = `You have successfully added the following information:
-            Name: ${name}
-            Role: ${role}
-            Call Name: ${call_name}
-            First Flight: ${first_flight}
-            Status: ${status}
-            to the collection.`;
+            message.innerHTML = `<h3>You have successfully added the following information:</h3>
+            <h4>Name: <span style="color: red;">${name}</h4>
+            <h4>Role: <span style="color: red;">${role}</h4>
+            <h4>Call Name: <span style="color: red;">${call_name}</h4>
+            <h4>First Flight: <span style="color: red;">${first_flight}</h4>
+            <h4>Status: <span style="color: red;">${status}</h4>
+            <h3>to the collection.</h3>`;
             messageContainer.appendChild(message);   
         }).catch((error) => {
             console.error(error);

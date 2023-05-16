@@ -3,7 +3,7 @@
     background: linear-gradient(0.25turn, #05aaf0, #fbfbfb, #fbfbfb, #05aaf0, #fbfbfb, #05aaf0, #fbfbfb,#fbfbfb, #05aaf0);
 }
 #f18, #f35, #f15 {
-    border: 3px solid #ddd;
+    border: 3px solid #5c5a5a;
     border-radius: 4px;
     padding: 5px;
     width: 33.3%;
@@ -18,13 +18,16 @@
     width: 100%;
 }
 #carouselExampleAutoplaying {
+    padding: 5px;
+    /* border: 3px solid #ddd; */
+    /* border-radius: 4px; */
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     height: 30%;
     margin-bottom: 1em;
-    padding: 5px;
+    
 }
 #post {
     border: 3px solid rgb(3, 3, 9);
@@ -36,11 +39,13 @@
     text-align: center;
     margin: auto;
     width: 50%;
+    margin-top: 1%;
 }
 #postHeader, #patchHeader {
     margin: auto;
     width: 50%;
     text-align: center;
+    margin-top: 13%;
 }
 #patch {
     border: 3px solid rgb(3, 3, 9);
@@ -53,6 +58,7 @@
     text-align: center;
     margin: auto;
     width: 50%;
+    margin-top: 1%;
 }
 #return {
     font-size: 20px;
