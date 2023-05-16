@@ -1,3 +1,63 @@
-*{
-    background-color: blanchedalmond;
+#container, .header, body{
+    background-size: cover;
+    background: linear-gradient(0.25turn, #05aaf0, #fbfbfb, #fbfbfb, #05aaf0, #fbfbfb, #05aaf0, #fbfbfb,#fbfbfb, #05aaf0);
+}
+#f18, #f35, #f15 {
+    border: 3px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 33.3%;
+    height: 45%;
+    /* margin-left: 20px; */
+    /* margin-top: auto; */
+    margin: auto;
+}
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+#carouselExampleAutoplaying {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 30%;
+    margin-bottom: 1em;
+    padding: 5px;
+}
+#post {
+    border: 3px solid rgb(3, 3, 9);
+    box-sizing: border-box;
+    border-radius: 25px;
+    background: #05aaf0;
+    padding: 1px;
+    height: 30px;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+#postHeader, #patchHeader {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+#patch {
+    border: 3px solid rgb(3, 3, 9);
+    box-sizing: border-box;
+    border-radius: 25px;
+    background: #05aaf0;
+    padding: 1px;
+    width: 800px;
+    height: 52px;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+#return {
+    font-size: 20px;
+}
+#updateInp {
+    border-bottom: 5em;
+    border-top: 1em;
 }

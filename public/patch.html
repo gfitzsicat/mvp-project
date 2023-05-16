@@ -9,15 +9,22 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <header id="patchHeader">
+        <h3> To make changes to an aircraft, please provide the necessary information below:</h3>
+    </header>
+    <a id="return" class="nav-link active" onclick="location.href='index.html'" >&#60 Return</a>
+    <div id="patch">
+        
         <!-- adding an aircraft -->
         <input type="text" id="nameInput1" placeholder="Name">
         <input type="text" id="roleInput1" placeholder="Role">
         <input type="text" id="callNameInput1" placeholder="Call Name">
         <input type="text" id="firstFlightInput1" placeholder="First Flight">
         <input type="text" id="statusInput1" placeholder="Status">
-        <input type="text" id="updateInp" placeholder="Aircraft Name">
-        <button id="patchBtn">Patch</button>  
+        <div>
+            <input type="text" id="updateInp" placeholder="Aircraft Name">
+            <button id="patchBtn">Patch</button>  
+        </div>
     </div>
 
     <script>
@@ -53,6 +60,21 @@
             .then((data) => {
                 console.log(data);
                 alert(`You've successfully modified ${aircraftName} information.`);
+                console.log(data);
+                    // const message
+
+
+        //     const messageContainer = document.getElementById('messageContainer');
+        //     const message = document.createElement('p');
+        //     message.innerHTML = `You have successfully added the following information:
+        //     Name: ${name}
+        //     Role: ${role}
+        //     Call Name: ${call_name}
+        //     First Flight: ${first_flight}
+        //     Status: ${status}
+        //     to the collection.`;
+        //     messageContainer.appendChild(message);   
+        // }).
             }).catch((error) => {
                 console.log(error);
             });
@@ -61,3 +83,5 @@
     </script>
 </body>
 </html>
+
+

@@ -9,7 +9,11 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <header id="postHeader">
+        <h3> To add an aircraft, please complete the following information:</h3>
+    </header>
+    <a id="return" class="nav-link active" onclick="location.href='index.html'" >&#60 Return</a>
+    <div id="post">
         <!-- adding an aircraft -->
         <input type="text" id="nameInput" placeholder="Name">
         <input type="text" id="roleInput" placeholder="Role">
@@ -18,9 +22,10 @@
         <input type="text" id="statusInput" placeholder="Status">
         <button id="postBtn">Post</button>
     
+        <div id="messageContainer"></div>
+
     </div>
-
-
+   
     <script>
 
 //          adding an aircraft to the database
@@ -47,13 +52,25 @@ postBtn.addEventListener("click", () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(aircraft)
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        console.log(data);
-        alert(`You successfully added name: ${name}, role: ${role}, call_name: ${call_name}, first_flight: ${first_flight}, status: ${status} to the collection`);
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            const messageContainer = document.getElementById('messageContainer');
+            const message = document.createElement('p');
+            message.innerHTML = `You have successfully added the following information:
+            Name: ${name}
+            Role: ${role}
+            Call Name: ${call_name}
+            First Flight: ${first_flight}
+            Status: ${status}
+            to the collection.`;
+            messageContainer.appendChild(message);   
+        }).catch((error) => {
+            console.error(error);
+            alert("Please fill in all the required fields, including the date in the format: DD Month Year.");
+        });
     });
-});
     </script>
 </body>
 </html>

@@ -10,6 +10,8 @@ const patchBtn = document.getElementById('patchBtn');
 //      to generate all the aircraft's information
 let getAircrafts = () => {
     aircrafts.innerHTML = '';
+    carouselExampleAutoplaying.innerHTML = '';
+    
     fetch("/api/aircraft")
     .then((res) => res.json())
     .then((data) => {
@@ -35,15 +37,19 @@ getAircrafts;
 //          get a specific aircraft by searching name
 searchBtn.addEventListener("click", () => {
     aircrafts.innerHTML = '';
+    carouselExampleAutoplaying.innerHTML = '';
+    container.innerHTML = '';
+
     let aircraftName = searchInp.value;
     fetch(`/api/aircraft/${aircraftName}`)
     .then((res) => res.json())
     .then((data) => {
+        console.log(data)
         for(let aircraft in data) {
             if(aircraft !== 'id'){
-            const span = document.createElement("span");
-            span.innerText = `${aircraft}: ${data[aircraft]}  `;
-            aircrafts.appendChild(span);
+            const div = document.createElement("div");
+            div.innerText = `${aircraft}: ${data[aircraft]}  `;
+            aircrafts.append(div);
             }
         };
     //   console.log(data);
@@ -64,6 +70,10 @@ delBtn.addEventListener("click", () => {
     .then((res) => res.json())
     .then((data) => {
      console.log(data);
+     const span = document.createElement("span");
+     span.innerText = `You have deleted ${name}! `;
+     span.classList.add('deleted')
+     aircrafts.appendChild(span);
     });
 
 });

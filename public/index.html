@@ -11,16 +11,17 @@
 </head>
 <body>
     <!-- bootstrap navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-2 text-primary-emphasis bg-info-subtle border border-primary-subtle rounded-3">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="index.html" id="home">Home</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <!-- generate all aircrafts -->
+                <a class="nav-link active" aria-current="page" id="acBtn" href="#">Aircrafts!</a>
               </li>
               <li class="nav-item">
                                      <!-- post link dropdown -->
@@ -33,21 +34,19 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Modifier
+                  Delete
                 </a>
-                <!-- <ul class="dropdown-menu">
+                <ul class="dropdown-menu">
                                       
-                  <li><a class="dropdown-item" >Post</a></li>
-                                      
-                  <li><a class="dropdown-item">Patch</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Delete</a></li>
-               
-                </ul> -->
-              </li>
-              <li class="nav-item">
+                   <!-- deleting an aircraft -->
+                  <input type="text" id="deleteInput" placeholder="Aircraft Name">
+                  <button id="delBtn">Delete</button>
+
+                </ul>
+              </li> 
+              <!-- <li class="nav-item">
                 <a class="nav-link disabled">Disabled</a>
-              </li>
+              </li> -->
             </ul>
             <form id="searchBar" class="d-flex" role="search">
               <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
@@ -60,24 +59,51 @@
 
       
     <div class="header">
-        <h1>Hello</h1>
-        <!-- generate all aircrafts -->
-        <button id="acBtn">Aircrafts!</button>
-
-           <!-- deleting an aircraft -->
-           <input type="text" id="deleteInput" placeholder="Aircraft Name">
-           <button id="delBtn">Delete</button>
+       
         
-    </div>
-    
+          
+        <!-- carousel -->
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/photos/Cha&Fla1.jpeg" class="d-block w-100" alt="photo1">
+            </div>
+            <div class="carousel-item">
+              <img src="/photos/Cha&Fla2.jpeg" class="d-block w-100" alt="photo2">
+            </div>
+            <div class="carousel-item">
+              <img src="/photos/Cha&Fla3.jpeg" class="d-block w-100" alt="photo3">
+            </div>
+            <div class="carousel-item">
+              <img src="/photos/Cha&Fla4.jpeg" class="d-block w-100" alt="photo4">
+            </div>
+            <div class="carousel-item">
+              <img src="/photos/Cha&Fla5.jpeg" class="d-block w-100" alt="photo5">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
     <!-- container -->
-    <div class="aircrafts">
-        <img src="..." class="rounded float-start" alt="...">
-        <img src="..." class="rounded mx-auto d-block" alt="...">
-        <img src="..." class="rounded float-end" alt="...">
+    
+    <div class="aircrafts" id="container">
+      <div>
+      <img src="/photos/F-18.jpeg" id="f18" class="rounded float-start" alt="F-18 image">
+      <img src="/photos/F-35.jpeg" id="f35" class="rounded float-start" alt="F-35 image">
+      <img src="/photos/F-15.jpeg" id="f15" class="rounded float-start" alt="F-15 image">
+      </div>
 
     </div>  
+    
 </body>
+
 </html>
 
 
