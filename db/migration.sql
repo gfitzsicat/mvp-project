@@ -9,49 +9,51 @@ CREATE TABLE aircraft (
     call_name TEXT NOT NULL,
     first_flight DATE NOT NULL,
     status TEXT NOT NULL
+    -- image VARCHAR
 );
 
 -- CREATE TABLE aircraft_civ (
 --     id SERIAL PRIMARY KEY,
 --     name TEXT NOT NULL,
---     role TEXT NOT NULL,
+--     role TEXT NOT NULL,s
 --     call_name TEXT NOT NULL,
 --     first_flight DATE NOT NULL,
 --     status TEXT NOT NULL
 -- );
 
+-- /acPhoto/F-16
 
 
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('F-16', 'Multirole Fighter', 'Viper', '2 February 1974', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('F-15', 'Air Superiority Fighter', 'Eagle', '27 July 1972', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('F/A-18', 'Carrier-based Multirole Fighter', 'Super Hornet', '29 November 1995', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('B-2', 'Stealth Strategic Bomber', 'Spirit', '17 July 1989', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('AH-64', 'Attack Helicopter', 'Apache', '30 September 1975', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('C-17', 'Strategic Airlifter', 'Globemaster III', '15 September 1991', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('P-8', 'Maritime Patrol Aircraft', 'Poseidon', '25 April 2009', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('E-3', 'Airborne Warning and Control System (AWACS) Aircraft', 'Sentry', '6 November 1975', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('UH-60', 'Utility Helicopter', 'Black Hawk', '17 October 1974', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('C-5M', 'Strategic Airlifter', 'Super Galaxy', '30 June 1968', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('V-22', 'Tiltrotor Military Aircraft', 'Osprey', '19 March 1989', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('MQ-9', 'Unmanned Combat Aerial Vehicle (UCAV)', 'Reaper', '2 February 2001', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('KC-135', 'Aerial Refueling Aircraft', 'Stratotanker', '31 August 1956', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('F-35B', 'Vertical Takeoff and Landing (VTOL) Fighter', 'Lightning II', '31 August 2006', 'Active');
-INSERT INTO aircraft (name, role, call_name, first_flight, status) 
-VALUES ('F-14', 'Carrier-based Interceptor/Fighter', 'Tomcat', '21 December 1970', 'Retired');
+INSERT INTO aircraft (name, role, call_name, first_flight, status)--, image) 
+VALUES ('F-16', 'Multirole Fighter', 'Viper', '2 February 1974', 'Active');--, '/acPhoto/F-16.jpeg');
+INSERT INTO aircraft (name, role, call_name, first_flight, status)--, image) 
+VALUES ('F-15', 'Air Superiority Fighter', 'Eagle', '27 July 1972', 'Active');--, '/acPhoto/F-15.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('F/A-18', 'Carrier-based Multirole Fighter', 'Super Hornet', '29 November 1995', 'Active', '/acPhoto/F-18.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('B-2', 'Stealth Strategic Bomber', 'Spirit', '17 July 1989', 'Active', '/acPhoto/B-2.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('AH-64', 'Attack Helicopter', 'Apache', '30 September 1975', 'Active', '/acPhoto/AH-64.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('C-17', 'Strategic Airlifter', 'Globemaster III', '15 September 1991', 'Active', '/acPhoto/C-17.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('P-8', 'Maritime Patrol Aircraft', 'Poseidon', '25 April 2009', 'Active', '/acPhoto/P-8.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('E-3', 'Airborne Warning and Control System (AWACS) Aircraft', 'Sentry', '6 November 1975', 'Active', '/acPhoto/E-3.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('UH-60', 'Utility Helicopter', 'Black Hawk', '17 October 1974', 'Active', '/acPhoto/UH-60.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('C-5M', 'Strategic Airlifter', 'Super Galaxy', '30 June 1968', 'Active', '/acPhoto/C-5M.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('V-22', 'Tiltrotor Military Aircraft', 'Osprey', '19 March 1989', 'Active', '/acPhoto/V-22.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('MQ-9', 'Unmanned Combat Aerial Vehicle (UCAV)', 'Reaper', '2 February 2001', 'Active', '/acPhoto/MQ-9.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('KC-135', 'Aerial Refueling Aircraft', 'Stratotanker', '31 August 1956', 'Active', '/acPhoto/KC-135.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('F-35B', 'Vertical Takeoff and Landing (VTOL) Fighter', 'Lightning II', '31 August 2006', 'Active', '/acPhoto/F-35B.jpeg');
+-- INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
+-- VALUES ('F-14', 'Carrier-based Interceptor/Fighter', 'Tomcat', '21 December 1970', 'Retired', '/acPhoto/F-14.jpeg');
 
 
 
