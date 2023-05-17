@@ -18,6 +18,15 @@ let getAircrafts = () => {
         console.log(data);
         for (let aircraft of data) {
             const div = document.createElement("div");
+            const img = document.createElement('img'); // Create the image element
+            img.src = aircraft.image; // Set the source attribute to the image URL
+            img.className = 'ac-img'; // Set the class attribute to apply CSS styling
+            img.style.width = '30%';
+            img.style.height = '20%';
+            img.style.margin = 'auto';
+            div.appendChild(img); // Append the image element to the div
+
+
             for (let prop in aircraft) {
                 if(prop !== "id" && prop !== "image") {
                 const html = document.createElement('div')
@@ -59,7 +68,6 @@ searchBtn.addEventListener("click", (event) => {
           console.log(data);
           const image = `<img src="${data.image}" class="ac-img" style="width: 800px; height: auto; display: block; margin: 0 auto; border: 1px solid black;">`;
           aircrafts.innerHTML = ''; // Clear the existing content before adding new elements
-          
           aircrafts.insertAdjacentHTML('beforeend', image); // Append the image element once
           
           for (let aircraft in data) {
