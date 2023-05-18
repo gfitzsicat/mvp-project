@@ -19,7 +19,7 @@
         <input type="text" id="nameInput" placeholder="Name">
         <input type="text" id="roleInput" placeholder="Role">
         <input type="text" id="callNameInput" placeholder="Call Name">
-        <input type="text" id="firstFlightInput" placeholder="First Flight">
+        <input type="text" id="firstFlightInput" placeholder="First Flight(Date)">
         <input type="text" id="statusInput" placeholder="Status">
         <button id="postBtn">Post</button>
     
@@ -47,8 +47,7 @@ postBtn.addEventListener("click", () => {
         first_flight: first_flight,
         status: status
     };
-
-    fetch('/api/aircraft/post', {
+        fetch('/api/aircraft/post', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -70,9 +69,14 @@ postBtn.addEventListener("click", () => {
             messageContainer.appendChild(message);   
         }).catch((error) => {
             console.error(error);
-            alert("Please fill in all the required fields, including the date in the format: DD Month Year.");
+            alert("Please fill in all the required fields");
         });
+        
     });
     </script>
+  
+      
 </body>
+
+
 </html>

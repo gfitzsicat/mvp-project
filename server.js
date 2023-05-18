@@ -2,6 +2,8 @@ import pg from "pg";
 import express from "express";
 import dotenv from 'dotenv';
 
+
+
 dotenv.config();
 
 const server = express();
@@ -84,6 +86,10 @@ server.delete("/api/aircraft/delete/:name", (req, res) => {
         }
     })
 });
+
+
+
+
 
 // //          Patch /or Update info of the aircraft to the database
 // server.patch('/api/aircraft/patch', (req, res) => {

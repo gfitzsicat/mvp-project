@@ -12,18 +12,22 @@ let getAircrafts = () => {
     aircrafts.innerHTML = '';
     carouselExampleAutoplaying.innerHTML = '';
     
+    
     fetch("/api/aircraft")
     .then((res) => res.json())
     .then((data) => {
         console.log(data);
         for (let aircraft of data) {
             const div = document.createElement("div");
+            div.className = 'aircraftDiv'
             const img = document.createElement('img'); // Create the image element
             img.src = aircraft.image; // Set the source attribute to the image URL
             img.className = 'ac-img'; // Set the class attribute to apply CSS styling
-            img.style.width = '30%';
+            img.style.width = '50%';
             img.style.height = '20%';
             img.style.margin = 'auto';
+            img.style.border = 'dashed';
+
             div.appendChild(img); // Append the image element to the div
 
 
@@ -56,7 +60,7 @@ searchBtn.addEventListener("click", (event) => {
     container.innerHTML = '';
 
     let aircraftName = searchInp.value;
-    if(aircraftName === "") {
+    if(aircraftName === "" || !aircraftName) {
         const div = document.createElement("div");
         div.innerText = ('No search results found')
         aircrafts.append(div)
