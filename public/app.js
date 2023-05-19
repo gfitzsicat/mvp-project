@@ -71,7 +71,7 @@ searchBtn.addEventListener("click", (event) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          const image = `<img src="${data.image}" class="ac-img" style="width: 800px; height: auto; display: block; margin: 0 auto; border: 1px solid black;">`;
+          const image = `<img src="${data.image}" class="ac-img" style="width: 60%; height: auto; display: block; margin: 0 auto; border: 1px solid black;">`;
           aircrafts.innerHTML = ''; // Clear the existing content before adding new elements
           aircrafts.insertAdjacentHTML('beforeend', image); // Append the image element once
           
