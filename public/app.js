@@ -11,11 +11,12 @@ const patchBtn = document.getElementById('patchBtn');
 let getAircrafts = () => {
     aircrafts.innerHTML = '';
     carouselExampleAutoplaying.innerHTML = '';
-    
+
     
     fetch("/api/aircraft")
     .then((res) => res.json())
     .then((data) => {
+      
         console.log(data);
         for (let aircraft of data) {
             const div = document.createElement("div");
@@ -27,20 +28,20 @@ let getAircrafts = () => {
             img.style.height = '20%';
             img.style.margin = 'auto';
             img.style.border = 'dashed';
-
             div.appendChild(img); // Append the image element to the div
-
+          console.log(data)
 
             for (let prop in aircraft) {
-                if(prop !== "id" && prop !== "image") {
-                const html = document.createElement('div')
-
-                 html.innerHTML = `
-                <h5> ${prop}: ${aircraft[prop]}</h5>
-                `
-                div.appendChild(html);
-                }
-            }
+              if (prop !== "id" && prop !== "image") {
+                  const html = document.createElement('div');
+                  // Apply date formatting to "first_flight"
+                  if (prop === "first_flight") {
+                      aircraft[prop] = luxon.DateTime.fromISO(aircraft[prop]).toFormat("dd LLL yyyy");
+                  }
+                  html.innerHTML = `<h5>${prop}: ${aircraft[prop]}</h5>`;
+                  div.appendChild(html);
+              }
+          }
             
             
             aircrafts.appendChild(div);
@@ -74,32 +75,45 @@ searchBtn.addEventListener("click", (event) => {
           aircrafts.innerHTML = ''; // Clear the existing content before adding new elements
           aircrafts.insertAdjacentHTML('beforeend', image); // Append the image element once
           
-          for (let aircraft in data) {
-            if (aircraft !== 'id' && aircraft !== 'image') {
-              const div = document.createElement('div');
-                div.innerHTML = `<h4>${aircraft}: ${data[aircraft]} </h4> `;
+          for (let prop in data) {
+            if (prop !== 'id' && prop !== 'image') {
+                const div = document.createElement('div');
+                const html = document.createElement('h4');
+                if (prop === 'first_flight') {
+                    data[prop] = luxon.DateTime.fromISO(data[prop]).toFormat('dd LLL yyyy');
+                }
+                html.innerHTML = `${prop}: ${data[prop]}`;
+                div.appendChild(html);
                 div.style.display = 'flex';
                 div.style.alignItems = 'center';
                 div.style.justifyContent = 'center';
                 div.style.fontFamily = 'Sans Serif';
-              aircrafts.appendChild(div);
-            }
-          }
+                aircrafts.appendChild(div);
+            };
+          };
         });
       };
 });
 
 
+const admin = 'ZaiZav'
 
 //          deleting an aircraft
 delBtn.addEventListener("click", () => {
+
+    let password = prompt(`Password`)
+    if(password !== admin) {
+      alert("You are not to allowed to delete")
+      return;
+    } else {
+
     const name = document.getElementById('deleteInput').value;
 
     aircrafts.innerHTML = '';
     carouselExampleAutoplaying.innerHTML = '';
 
     fetch(`/api/aircraft/delete/${name}`,{
-        method: 'DELETE'
+        method: 'DELETE',
     })
     .then((res) => res.json())
     .then((data) => {
@@ -109,7 +123,7 @@ delBtn.addEventListener("click", () => {
      span.classList.add('deleted')
      aircrafts.appendChild(span);
     });
-
+  };
 });
 
 

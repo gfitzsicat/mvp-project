@@ -24,12 +24,12 @@ CREATE TABLE aircraft (
 -- /acPhoto/F-16
 
 
-INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
-VALUES ('F-16', 'Multirole Fighter', 'Viper', '2 February 1974', 'Active', '/acPhoto/F-16.jpeg');
+INSERT INTO aircraft (name, role, call_name, first_flight, status, image)
+VALUES ('F-18E', 'Carrier-based Multirole Fighter', 'Super Hornet', '29 November 1995', 'Active', '/acPhoto/F-18.jpeg');
 INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
 VALUES ('F-15', 'Air Superiority Fighter', 'Eagle', '27 July 1972', 'Active', '/acPhoto/F-15.jpeg');
 INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
-VALUES ('F/A-18', 'Carrier-based Multirole Fighter', 'Super Hornet', '29 November 1995', 'Active', '/acPhoto/F-18.jpeg');
+VALUES ('F-16', 'Multirole Fighter', 'Viper', '2 February 1974', 'Active', '/acPhoto/F-16.jpeg');
 INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
 VALUES ('B-2', 'Stealth Strategic Bomber', 'Spirit', '17 July 1989', 'Active', '/acPhoto/B-2.jpeg');
 INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
@@ -51,9 +51,14 @@ VALUES ('MQ-9', 'Unmanned Combat Aerial Vehicle (UCAV)', 'Reaper', '2 February 2
 INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
 VALUES ('KC-135', 'Aerial Refueling Aircraft', 'Stratotanker', '31 August 1956', 'Active', '/acPhoto/KC-135.jpeg');
 INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
-VALUES ('F-35B', 'Vertical Takeoff and Landing (VTOL) Fighter', 'Lightning II', '31 August 2006', 'Active', '/acPhoto/F-35B.jpeg');
-INSERT INTO aircraft (name, role, call_name, first_flight, status, image) 
-VALUES ('F-14', 'Carrier-based Interceptor/Fighter', 'Tomcat', '21 December 1970', 'Retired', '/acPhoto/F-14.jpeg');
+VALUES ('F-14', 'Carrier-based Interceptor/Fighter', 'Tomcat', '21 December 1970', 'Retired', '/acPhoto/F-14.jpeg'),
+('A-10', 'Close Air Support Aircraft', 'Warthog', '10 May 1972', 'Active', '/acPhoto/A-10.jpeg'),
+('F-4', 'Interceptor/Fighter', 'Phantom II', '27 May 1958', 'Retired', '/acPhoto/F-4.jpeg'),
+('B-52', 'Strategic Bomber', 'Stratofortress', '15 April 1952', 'Active', '/acPhoto/B-52.jpeg'),
+('F-117', 'Stealth Attack Aircraft', 'Nighthawk', '18 June 1981', 'Retired', '/acPhoto/F-117.jpeg'),
+('AC-130', 'Gunship Aircraft', 'Spooky', '20 December 1968', 'Active', '/acPhoto/AC-130.jpeg'),
+('F-35C', 'Carrier-based Multirole Fighter', 'Lightning II', '7 June 2010', 'Active', '/acPhoto/F-35C.jpeg'),
+('B-29', 'Strategic Bomber', 'Superfortress', '21 September 1942', 'Retired', '/acPhoto/B-29.jpeg');
 
 
 

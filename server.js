@@ -2,7 +2,7 @@ import pg from "pg";
 import express from "express";
 import dotenv from 'dotenv';
 
-
+    
 
 dotenv.config();
 
@@ -24,7 +24,8 @@ server.get("/api/aircraft", (_, res) => {
     db.query("SELECT * FROM aircraft")
     .then((result) => {
       res.send(result.rows);
-    });
+    })
+    // .catch(next);
 });
 
 //          Getting a specific aircraft by name from the database.
@@ -42,7 +43,8 @@ server.get("/api/aircraft/:name", (req, res) => {
           } else {
           res.send(result.rows[0]);
           };
-    });
+    })
+    // .catch(next);
 });
 
 //          Posting a new aircraft to the database.
@@ -66,8 +68,11 @@ server.post("/api/aircraft/post", (req, res) => {
     [name, role, call_name, first_flight, status])
     .then((result) => {
         res.status(201).send(result.rows[0]);
-     });
+     })
+    //  .catch(next);
 });
+
+
 
 //          Deleting aircraft by specific ID from the database.
 server.delete("/api/aircraft/delete/:name", (req, res) => {
@@ -85,7 +90,10 @@ server.delete("/api/aircraft/delete/:name", (req, res) => {
             res.send(result.rows[0]);
         }
     })
+    // .catch(next)
 });
+
+
 
 
 
@@ -144,10 +152,15 @@ server.patch('/api/aircraft/patch/:name', (req, res) => {
             } else {
                 res.send(result.rows[0]);
             }
-        });
+        })
+        // .catch(next)
 });
 
-
+// server.use((err, req, res, next) => {
+//     console.error(err.message);
+//     return res.sendStatus(500);
+//   });
+  
 //          Listening to Port
 server.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);

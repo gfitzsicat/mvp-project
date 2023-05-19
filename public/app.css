@@ -13,6 +13,13 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+.textTitle {
+    margin-left: auto;
+    margin-right: 27.5%;
+    text-align: center;
+    border-radius: 0;
+    justify-content: center;
+}
 .page-container {
     display: flex;
     min-height: 100vh; 
@@ -31,6 +38,7 @@ main {
     /* margin-top: auto; */
     margin: auto;
     padding-bottom: 1rem;
+    display: inline-flex;
 }
 #container {
     margin-left: auto;
@@ -102,9 +110,10 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px;
-    background-color: rgb(146, 222, 237);
+    background-color: rgb(146, 222, 237, 0.5);
     margin-bottom: 0;
     margin-top: auto;
+   
  }
 
 
