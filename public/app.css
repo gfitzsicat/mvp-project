@@ -34,11 +34,8 @@ main {
     padding: 5px;
     width: 33%;
     height: 40%;
-    /* margin-left: 20px; */
-    /* margin-top: auto; */
     margin: auto;
     padding-bottom: 1rem;
-    display: inline-flex;
 }
 #container {
     margin-left: auto;

@@ -41,11 +41,9 @@ let getAircrafts = () => {
                   html.innerHTML = `<h5>${prop}: ${aircraft[prop]}</h5>`;
                   div.appendChild(html);
               }
-          }
-            
-            
+          };
             aircrafts.appendChild(div);
-        }
+        };
     });
 }   
 
@@ -61,9 +59,9 @@ searchBtn.addEventListener("click", (event) => {
     container.innerHTML = '';
 
     let aircraftName = searchInp.value;
-    if(aircraftName === "" || !aircraftName) {
+    if(!aircraftName ) {
         const div = document.createElement("div");
-        div.innerText = ('No search results found')
+        div.innerText = ('Please provide a valid aircraft name')
         aircrafts.append(div)
         return
     } else {
@@ -91,8 +89,14 @@ searchBtn.addEventListener("click", (event) => {
                 aircrafts.appendChild(div);
             };
           };
+        }).catch((error) => {
+          console.log(error);
+          aircrafts.innerHTML = '';
+          const div = document.createElement('div');
+          div.innerText = ('No search results found');
+          aircrafts.append(div);
         });
-      };
+      }
 });
 
 
