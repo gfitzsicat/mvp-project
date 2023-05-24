@@ -100,7 +100,7 @@ searchBtn.addEventListener("click", (event) => {
 });
 
 
-const admin = 'ZaiZav'
+const admin = 'Not Allowed'
 
 //          deleting an aircraft
 delBtn.addEventListener("click", () => {
